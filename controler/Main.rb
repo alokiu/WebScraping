@@ -4,9 +4,8 @@ require_relative "../model/ProductInfoWriter"
 
 class Main
 
-  start_time = Time.now
-  start_url = "https://www.petsonic.com/snacks-huesos-para-perros/"
-  file_name = "file.csv"
+  start_url = ARGV[0]
+  file_name = ARGV[1]
 
   all_urls = ProductsUrl.get_urls_array(start_url)
 
@@ -16,5 +15,4 @@ class Main
     html = OpenUri.open_url(productUrl)
     info_writer.add_info(html)
   end
-  puts (Time.now-start_time).to_s
 end
