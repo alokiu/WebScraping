@@ -1,6 +1,6 @@
-require_relative "../model/OpenUri"
-require_relative "../model/ProductsUrl"
-require_relative "../model/ProductInfoWriter"
+require_relative "OpenUri"
+require_relative "ProductsUrl"
+require_relative "ProductInfoWriter"
 
 class Main
 
@@ -9,9 +9,12 @@ class Main
 
   all_urls = ProductsUrl.get_urls_array(start_url)
 
-  info_writer = ProductInfoWriter.new(file_name)
 
+  info_writer = ProductInfoWriter.new(file_name)
+  puts all_urls[0]
   all_urls.each do |productUrl|
+
+
     html = OpenUri.open_url(productUrl)
     info_writer.add_info(html)
   end

@@ -1,5 +1,5 @@
 require 'nokogiri'
-require_relative '../view/CsvWriter'
+require_relative 'CsvWriter'
 
 class ProductInfoWriter
   attr  :csv
@@ -14,18 +14,22 @@ class ProductInfoWriter
     product_price = doc.xpath('//span[@class="attribute_price"]').text.strip
     product_name = doc.xpath('//h1[@class="nombre_producto"]').text.strip
     product_image_link = doc.xpath('//img[@id="bigpic"]/@src').text.strip
-
     if product_price == ""
       @csv.write(product_name,
                  doc.xpath('//span[@id="our_price_display"]').text.strip.split(' ').first,
                  product_image_link
       )
     else
-      doc.xpath('//ul[@class="attribute_labels_lists"]').each do |list|
-        @csv.write(product_name + ' - ' + list.search('span.attribute_name').text.strip,
-                   list.search('span.attribute_price').text.strip.split(' ').first,
+      product_array_price = doc.xpath('//span[@class = "attribute_price"]/text()')
+      product_array_name =  doc.xpath('//span[@class = "attribute_name"]/text()')
+
+      i = 0
+      while i < product_array_name.length
+        @csv.write(product_name + ' - ' + product_array_name[i],
+                   product_array_price[i].text.split(' ').first,
                    product_image_link
         )
+        i+=1
       end
     end
   end

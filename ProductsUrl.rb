@@ -14,7 +14,7 @@ class ProductsUrl
     get_page_links(links_array, doc)
 
     while doc.xpath('//ul[@class = "pagination pull-left"]/li[@id = "pagination_next_bottom"]/a/@href').
-        text.strip !=""
+        text.strip != ""
 
       html = html.link_with(:xpath =>'//ul[@class = "pagination pull-left"]/li[@id = "pagination_next_bottom"]/a')
                  .click
@@ -22,13 +22,10 @@ class ProductsUrl
 
       get_page_links(links_array, doc)
     end
-
     return links_array
   end
 
   def self.get_page_links(links_array, doc)
-    doc.css('.product_img_link').each do |product|
-      links_array.push(product['href'])
-    end
+    links_array.concat doc.xpath('//a[@class = "product_img_link"]/@href')
   end
 end
