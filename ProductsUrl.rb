@@ -1,31 +1,30 @@
 require 'nokogiri'
-require 'mechanize'
+require 'open-uri'
 
 class ProductsUrl
 
-  def self.get_urls_array(start_url)
+  def self.getUrlsArray(start_url)
 
-    agent = Mechanize.new
-    html = agent.get(start_url)
-    doc = Nokogiri::HTML(html.body)
+    startHtml = open(start_url)
+    doc = Nokogiri::HTML(startHtml)
 
-    links_array = []
+    linksArray = []
+    getPageLinks(linksArray, doc)
+    nextUrl = doc.xpath('//li[@id="pagination_next_bottom"]/a/@href')
+    while nextUrl.text.strip != ""
 
-    get_page_links(links_array, doc)
+      url = 'https://www.petsonic.com' + nextUrl.to_s
+      nextHtml = open(url)
+      doc = Nokogiri::HTML(nextHtml)
 
-    while doc.xpath('//ul[@class = "pagination pull-left"]/li[@id = "pagination_next_bottom"]/a/@href').
-        text.strip != ""
-
-      html = html.link_with(:xpath =>'//ul[@class = "pagination pull-left"]/li[@id = "pagination_next_bottom"]/a')
-                 .click
-      doc = Nokogiri::HTML(html.body)
-
-      get_page_links(links_array, doc)
+      getPageLinks(linksArray, doc)
+      nextUrl = doc.xpath('//li[@id="pagination_next_bottom"]/a/@href')
     end
-    return links_array
+
+    return linksArray
   end
 
-  def self.get_page_links(links_array, doc)
-    links_array.concat doc.xpath('//a[@class = "product_img_link"]/@href')
+  def self.getPageLinks(linksArray, doc)
+    linksArray.concat doc.xpath("//div[@class='product-image-container image ImageWrapper']/a[@class='product_img_link']/@href")
   end
 end

@@ -2,18 +2,18 @@ require "csv"
 
 class Csv
 
-  attr :name_file
+  attr :nameFile
 
-  def initialize(file_name)
-    @name_file = file_name
+  def initialize(fileName)
+    @nameFile = fileName
 
-    CSV.open(@name_file, "wb") do |csv|
+    CSV.open(@nameFile, "wb") do |csv|
       csv << ["Product name", "Price", "Img link"]
     end
   end
 
   def write(name, price, img)
-    CSV.open(@name_file, "a+") do |csv|
+    CSV.open(@nameFile, "a+") do |csv|
       csv << [name, price, img]
     end
   end
