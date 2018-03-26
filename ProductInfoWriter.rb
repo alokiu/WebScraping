@@ -5,12 +5,12 @@ require_relative 'CsvWriter'
 class ProductInfoWriter
   attr  :csv
 
-  def initialize(file_name)
-    @csv = Csv.new(file_name)
+  def initialize(fileName)
+    @csv = Csv.new(fileName)
   end
 
-  def addInfo(product_url)
-    doc = Nokogiri::HTML(product_url)
+  def addInfo(productUrl)
+    doc = Nokogiri::HTML(productUrl)
     productArrayPrice = doc.xpath('//ul[@class="attribute_labels_lists"]/li/span[@class="attribute_price"]/text()')
     productName = doc.xpath('//h1[@class="nombre_producto"]/text()').text.strip
     productImageLink = doc.xpath('//span[@id="view_full_size"]/img[@id="bigpic"]/@src').text.strip

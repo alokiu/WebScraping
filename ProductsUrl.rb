@@ -3,9 +3,8 @@ require 'open-uri'
 
 class ProductsUrl
 
-  def self.getUrlsArray(start_url)
-
-    startHtml = open(start_url)
+  def self.getUrlsArray(startUrl)
+    startHtml = open(startUrl)
     doc = Nokogiri::HTML(startHtml)
 
     linksArray = []
