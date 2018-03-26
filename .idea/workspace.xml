@@ -4,13 +4,6 @@
     <list default="true" id="31defa90-6481-48d2-8af0-6084789c4b51" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/1.csv" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/CsvWriter.rb" afterPath="$PROJECT_DIR$/CsvWriter.rb" />
-      <change beforePath="$PROJECT_DIR$/Main.rb" afterPath="$PROJECT_DIR$/Main.rb" />
-      <change beforePath="$PROJECT_DIR$/OpenUri.rb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/ProductInfoWriter.rb" afterPath="$PROJECT_DIR$/ProductInfoWriter.rb" />
-      <change beforePath="$PROJECT_DIR$/ProductsUrl.rb" afterPath="$PROJECT_DIR$/ProductsUrl.rb" />
-      <change beforePath="$PROJECT_DIR$/file1.csv" afterPath="$PROJECT_DIR$/file1.csv" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -64,8 +57,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+            <state relative-caret-position="537">
+              <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -183,12 +176,12 @@
       <workItem from="1521988244285" duration="535000" />
       <workItem from="1522056404379" duration="7298000" />
       <workItem from="1522064416655" duration="3178000" />
-      <workItem from="1522067609325" duration="7494000" />
+      <workItem from="1522067609325" duration="7625000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24661000" />
+    <option name="totallyTimeSpent" value="24792000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
@@ -379,8 +372,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        <state relative-caret-position="537">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding />
         </state>
       </provider>
