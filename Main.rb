@@ -13,7 +13,9 @@ class Main
   infoWriter = ProductInfoWriter.new(fileName)
   progress = ProgressBar.create(:title => 'Загрузка информации со страниц', :total => allUrls.length)
   allUrls.each do |productUrl|
-    html = open(productUrl)
+    html = open(productUrl, "User-Agent" => "Mozilla/5.0",
+                "From" => "foo@bar.invalid",
+                "Referer" => "http://www.petsonic.com/")
     infoWriter.addInfo(html)
     progress.increment
 

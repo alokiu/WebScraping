@@ -4,7 +4,10 @@ require 'open-uri'
 class ProductsUrl
 
   def self.getUrlsArray(startUrl)
-    startHtml = open(startUrl)
+    startHtml = open(startUrl,
+                     "User-Agent" => "Mozilla/5.0",
+                     "From" => "foo@bar.invalid",
+                     "Referer" => "http://www.petsonic.com/")
     doc = Nokogiri::HTML(startHtml)
 
     linksArray = []
